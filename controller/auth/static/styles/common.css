@@ -1,0 +1,95 @@
+/*
+
+common.css
+
+CSS file that works along with the static webpage template. This should be included with all html files.
+
+First create: October 2nd, 2020
+Last update: October 12th, 2020
+Author(s): Tuohang Zeng
+
+© VMS 2020
+*/
+
+html {
+    min-width: 350px;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+/*// Extra small devices (portrait phones, less than 576px)*/
+* {
+    font-family: 'Source Sans Pro', Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    /*    border: 0.0001px solid green;*/
+}
+
+.vms-header {
+    background-color: #e2231b;
+    /*    height: 65px;*/
+}
+
+.logo-png {
+    width: 90%;
+    max-height: 80px;
+
+}
+
+.logos-container {
+    height: 65px;
+}
+
+#vms-title {
+    font-size: 13pt;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.bottom-container {
+    padding-top: 70px;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #333;
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+    #vms-title {
+        font-size: 16pt;
+    }
+
+    .logos-container {
+        height: 80px;
+    }
+
+    .vms-header {
+        /*        height: 80px;*/
+    }
+
+    .bottom-container {
+        padding-top: 90px;
+    }
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #vms-title {
+        font-size: 18pt;
+    }
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    #vms-title {
+        font-size: 22pt;
+    }
+}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}

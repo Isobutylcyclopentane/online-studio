@@ -3,19 +3,13 @@ from datetime import date, datetime
 from json import JSONEncoder
 from passlib.context import CryptContext
 
-# temporary storage places for password changing and registration process
-registration_storage = dict()
-change_password_storage = dict()
-
-# security measure for admin access 
-# ensure no user can change their own user type to admin 
-admin_uids = ["0"]
+NUM_OF_ENCRY_ROUND = 1000
 
 # encrypter initializer
 pwd_context = CryptContext(
         schemes=["pbkdf2_sha256"],
         default="pbkdf2_sha256",
-        pbkdf2_sha256__default_rounds=1000
+        pbkdf2_sha256__default_rounds=NUM_OF_ENCRY_ROUND
 )
 
 def encrypt_password(password):

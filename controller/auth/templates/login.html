@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="m-auto w-100 p-3 justify-content-center text-center" style="max-width: 330px;">
+    <script type="text/javascript">
+        $('#dynamic-content').css('background-color', '#f5f5f5');
+        $('#dynamic-content').css('height', '100%');
+
+    </script>
+    <form action="" method="post">
+        <h1 class="h3 m-4 font-weight-bold">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="user_email" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
+</div>
+{% endblock %}

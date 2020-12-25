@@ -9,5 +9,17 @@ from logics import encrypter
 auth_bp = Blueprint(
     "auth_bp", __name__, 
     template_folder="templates",
-    static_folder="static"
+    static_folder="static",
+    static_url_path="/static/auth"
 )
+
+
+@auth_bp.route("/")
+def homepage():
+    return redirect(url_for("auth_bp.login"))
+
+@auth_bp.route("/login", methods=["GET", "POST"])
+def login():
+    error = None
+    return render_template('login.html', error=error, nav_bar = [{"name":"Forget Password", "url":"/#"}])
+
