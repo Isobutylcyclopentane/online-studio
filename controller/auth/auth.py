@@ -13,6 +13,7 @@ auth_bp = Blueprint(
     static_url_path="/static/auth"
 )
 
+LOGIN_NAV_BAR = [{"name":"Forget Password", "url":"/#"}, {"name":"Register", "url":"/register"}]
 
 @auth_bp.route("/")
 def homepage():
@@ -21,5 +22,5 @@ def homepage():
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     error = None
-    return render_template('login.html', error=error, nav_bar = [{"name":"Forget Password", "url":"/#"}])
+    return render_template('login.html', error=error, nav_bar = LOGIN_NAV_BAR)
 

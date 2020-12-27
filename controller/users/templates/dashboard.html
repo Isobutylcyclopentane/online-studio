@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="column">
+        <iframe width="480" height="270" src="https://www.youtube.com/embed/OQoMWSr9RH0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>
+    <div class="column">
+        <ul>
+            <li>
+                <div>
+                    <img src="{{ url_for('users_bp.static', filename='img/fpga_control_panel.png') }}" alt="javascript interactive control panel will goes here" width="354" height="200">
+                </div>
+            </li>
+            <li>
+                <p> some sort of descriptions for the buttons below </p>
+            </li>
+            <li>
+                <p> Please click on the "Choose File" button to upload the bitstream file: </p>
+                <form action="/receive-bitstream">
+                    <input type="file" id="bitstream" name="bitstream">
+                    <input type="submit">
+                </form>
+                <p> Click the button below to program your FPGA </p>
+                <form action="" method="post">
+                    <input type="submit" name="program" value="Program" />
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}
