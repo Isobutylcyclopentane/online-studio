@@ -1,0 +1,105 @@
+{% extends "index.html" %}
+{% block content %}
+<script type="text/javascript">
+    $('#dynamic-content').css('height', 'fit-content');
+
+</script>
+
+<!--Note, password here is transmitted in PLAIN CLEAR TEXT, future developments to encrypt the transmission using SSL/HTTPS/Hashing is Strongly Encouraged!-->
+{% if admin_set_passwd_info %}
+<form class="col-12" method="post" id="createAccountForm" oninput='password.setCustomValidity(password.value != password1.value ? "Passwords do not match." : "")'>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email Address</label>
+            <input type="email" class="form-control" name=email value="{{ admin_set_passwd_info.user_email }}" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Password &nbsp;<strong><i>* Please avoid reusing passwords for other sites</i></strong></label><br>
+            <label>Note: Length of 8-16 characters required</label>
+            <input type="password" class="form-control" name=passwordConfirm placeholder="" rows="5" required pattern="^.{8,16}$">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name=password placeholder="" rows="5">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name=password placeholder="" rows="5">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Frist Name</label>
+            <input class="form-control" name=firstname value="{{ admin_set_passwd_info.firstname }}" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Last Name</label>
+            <input class="form-control" name=lastname value="{{ admin_set_passwd_info.lastname }}" required>
+        </div>
+    </div>
+
+    <!--
+    <div class="form-row">
+        <p>Please select your role as a user:</p>
+        <input type="radio" id="vol" name="user_type" value="volunteer">
+        <label for="volunteer">Volunteer</label><br>
+        <input type="radio" id="org" name="user_type" value="organization">
+        <label for="organization">Organization</label><br>
+    </div>
+    -->
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input class="" type="checkbox" value="" required>
+            <label class="">
+                Agree to terms and conditions
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+</form>
+
+{% else %}
+
+form class="col-12" method="post" id="createAccountForm" oninput='password.setCustomValidity(password.value != password1.value ? "Passwords do not match." : "")'>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email Address &nbsp;<strong><i>* Please use your RPI email</i></strong></label>
+            <input type="email" class="form-control" name=email placeholder="rcsid@rpi.edu" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Password &nbsp;<strong><i>* Please avoid reusing passwords for other sites</i></strong></label><br>
+            <label>Note: Length of 8-16 characters required</label>
+            <input type="password" class="form-control" name=passwordConfirm placeholder="" rows="5" required pattern="^.{8,16}$">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name=password placeholder="" rows="5">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input class="" type="checkbox" value="" required>
+            <label class="">
+                Agree to terms and conditions
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+</form>
+
+{% endif %}
+{% endblock %}

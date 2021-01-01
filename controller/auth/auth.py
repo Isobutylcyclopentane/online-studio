@@ -24,3 +24,8 @@ def login():
     error = None
     return render_template('login.html', error=error, nav_bar = LOGIN_NAV_BAR)
 
+
+@auth_bp.route("/admin-set-passwd/<token>", methods=["GET", "POST"])
+def admin_set_passwd(token):
+    
+    return 
